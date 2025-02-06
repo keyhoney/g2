@@ -4,13 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>학생 정보 검색</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-        }
-
         .student-image {
             width: 100%;
             height: auto;
@@ -36,15 +31,11 @@
             flex-direction: column;
             gap: 10px;
         }
-
-        #result {
-            margin-top: 20px;
-        }
     </style>
 </head>
 <body>
-    <h1>학생 정보 검색 ver.4</h1>
-    <h4>이미지 크기 조정, 플로팅 툴바 기능 추가</h4>
+    <h1>학생 정보 검색 ver4</h1>
+    <h5>신학년도 기준, 사진 크기 자동 조절, 플로팅 툴바 추가</h5>
     <form id="studentForm">
         <label for="class">반:</label>
         <select id="class" required>
@@ -91,7 +82,9 @@
             <option value="25">25번</option>
         </select>
 
-       <button type="submit">검색</button>
+        <div style="display: flex; gap: 10px; margin-top: 10px;">
+            <button type="submit">검색</button>
+        </div>
     </form>
     
     <div id="result"></div>
@@ -104,4 +97,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
