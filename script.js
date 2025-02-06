@@ -40,7 +40,7 @@ fetch('students.json')
             if (student) {
                 resultDiv.innerHTML = `
                     <h2>${student.name}</h2>
-                    <img src="${student.photo}" alt="${student.name}" />
+                    <img src="${student.photo}" alt="${student.name}" class="student-image" />
                     <p>희망 전공: ${student.major}</p>
                     <p>희망 진로: ${student.career}</p>
                     <p>학생 연락처: ${student.contact}</p>
