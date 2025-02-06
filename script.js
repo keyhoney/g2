@@ -66,7 +66,7 @@ END:VCARD
                     const url = URL.createObjectURL(blob);
                     const a = document.createElement('a');
                     a.href = url;
-                    a.download = `25학년도${classNum}반${number}${student.name}.vcf`;
+                    a.download = `25학년도${classNum}반${number}번${student.name}.vcf`;
                     document.body.appendChild(a);
                     a.click();
                     document.body.removeChild(a);
