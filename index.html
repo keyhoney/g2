@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -7,26 +9,35 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         .student-image {
-            width: 100%; /* 기본적으로 100%로 설정 */
-            height: auto; /* 원본 비율 유지 */
+            width: 100%;
+            height: auto;
         }
 
-        @media (max-width: 768px) { /* 모바일 화면 */
+        @media (max-width: 768px) {
             .student-image {
-                width: 80%; /* 화면 가로 길이의 4/5 */
+                width: 80%; /* 모바일 화면의 4/5 */
             }
         }
 
-        @media (min-width: 769px) { /* PC 화면 */
+        @media (min-width: 769px) {
             .student-image {
-                width: 25%; /* 화면 가로 길이의 1/4 */
+                width: 25%; /* PC 화면의 1/4 */
             }
+        }
+
+        #floating-toolbar {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
     </style>
 </head>
 <body>
-    <h1>학생 정보 검색 ver.3</h1>
-    <h2>이미지 크기 조정, 신학년 반번호 반영</h2>
+    <h1>학생 정보 검색 ver.4</h1>
+    <h4>이미지 크기 조정, 플로팅 툴바 추가</h4>
     <form id="studentForm">
         <label for="class">반:</label>
         <select id="class" required>
@@ -79,6 +90,11 @@
     </form>
     
     <div id="result"></div>
+
+    <div id="floating-toolbar">
+        <button id="prevStudent" style="display:none;">이전</button>
+        <button id="nextStudent" style="display:none;">이후</button>
+    </div>
 
     <script src="script.js"></script>
 </body>
