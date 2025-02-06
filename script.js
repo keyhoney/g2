@@ -49,7 +49,7 @@ fetch('students.json')
                     <p>이메일 주소: ${student.email}</p>
                 `;
 
-                // VCard 저장 버튼 활성화
+                // VCard 버튼 활성화
                 downloadVCardButton.style.display = 'block';
                 downloadVCardButton.onclick = function() {
                     const vCardData = `
