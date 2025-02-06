@@ -35,6 +35,8 @@ fetch('students.json')
             const student = students[classNum]?.[number];
 
             const resultDiv = document.getElementById('result');
+            const downloadVCardButton = document.getElementById('downloadVCard');
+
             if (student) {
                 resultDiv.innerHTML = `
                     <h2>${student.name}</h2>
@@ -46,8 +48,33 @@ fetch('students.json')
                     <p>아버지 연락처: ${student.fatherContact}</p>
                     <p>이메일 주소: ${student.email}</p>
                 `;
+
+                // VCard 저장 버튼 활성화
+                downloadVCardButton.style.display = 'block';
+                downloadVCardButton.onclick = function() {
+                    const vCardData = `
+BEGIN:VCARD
+VERSION:3.0
+FN:${student.name}
+TEL;TYPE=CELL:${student.contact}
+EMAIL:${student.email}
+END:VCARD
+                    `.trim();
+
+                    // VCard 파일 다운로드
+                    const blob = new Blob([vCardData], { type: 'text/vcard' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `25학년도${classNum}반${number}${student.name}.vcf`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                };
             } else {
                 resultDiv.innerHTML = '<p>학생 정보를 찾을 수 없습니다.</p>';
+                downloadVCardButton.style.display = 'none'; // 학생 정보가 없으면 버튼 숨김
             }
         });
     })
