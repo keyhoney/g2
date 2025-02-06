@@ -49,6 +49,7 @@ fetch('students.json')
         document.getElementById('prevStudent').addEventListener('click', function() {
             if (currentNumber > 1) {
                 currentNumber--;
+                document.getElementById('number').value = currentNumber; // 드롭다운 값 변경
                 const student = students[currentClassNum]?.[currentNumber];
                 if (student) {
                     displayStudentInfo(student);
@@ -58,9 +59,10 @@ fetch('students.json')
 
         // 이후 학생 버튼 클릭 이벤트
         document.getElementById('nextStudent').addEventListener('click', function() {
-            const student = students[currentClassNum]?.[currentNumber + 1];
+            currentNumber++;
+            document.getElementById('number').value = currentNumber; // 드롭다운 값 변경
+            const student = students[currentClassNum]?.[currentNumber];
             if (student) {
-                currentNumber++;
                 displayStudentInfo(student);
             }
         });
