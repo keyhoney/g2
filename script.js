@@ -50,7 +50,7 @@ fetch('students.json')
                 `;
 
                 // VCard 버튼 활성화
-                downloadVCardButton.style.display = 'block';
+                downloadVCardButton.style.display = 'block'; // 버튼을 보이게 함
                 downloadVCardButton.onclick = function() {
                     const vCardData = `
 BEGIN:VCARD
