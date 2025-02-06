@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>학생 정보 검색</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .student-image {
+            width: 100%; /* 기본적으로 100%로 설정 */
+            height: auto; /* 원본 비율 유지 */
+        }
+
+        @media (max-width: 768px) { /* 모바일 화면 */
+            .student-image {
+                width: 80%; /* 화면 가로 길이의 4/5 */
+            }
+        }
+
+        @media (min-width: 769px) { /* PC 화면 */
+            .student-image {
+                width: 25%; /* 화면 가로 길이의 1/4 */
+            }
+        }
+    </style>
 </head>
 <body>
     <h1>학생 정보 검색 ver2(2025학년도 기준)</h1>
@@ -54,11 +72,10 @@
             <option value="25">25번</option>
         </select>
 
-    <div style="display: flex; gap: 10px;">
-        <button type="submit">검색</button>
-        <button id="downloadVCard" style="display:none;">Vcard(연락처) 저장</button>
-    </div>
-
+        <div style="display: flex; gap: 10px; margin-top: 10px;">
+            <button type="submit">검색</button>
+            <button id="downloadVCard" style="display:none;">Vcard(연락처) 저장</button>
+        </div>
     </form>
     
     <div id="result"></div>
