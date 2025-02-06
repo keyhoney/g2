@@ -59,7 +59,7 @@ fetch('students.json')
 
                 // 버튼 표시
                 prevButton.style.display = currentIndex > 0 ? 'block' : 'none';
-                nextButton.style.display = 'none'; // '이후' 버튼은 처음에는 숨김
+                nextButton.style.display = studentOrder.length > 1 ? 'block' : 'none'; // 학생 수에 따라 '이후' 버튼 표시
             } else {
                 resultDiv.innerHTML = '<p>학생 정보를 찾을 수 없습니다.</p>';
                 prevButton.style.display = 'none';
